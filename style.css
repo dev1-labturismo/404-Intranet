@@ -1,42 +1,109 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-body{
-    background-size: cover;
-    background-repeat: no-repeat;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100dvh;
     width: 100%;
-    height: 100dvh;
-    overflow: hidden;
+    background-color: #faf8ff;
+    overflow-x: hidden;
     position: relative;
-}
-.blur1{
-    height: 50%;
-    width: 50%;
-    background-color: #794b9b;
-    filter: blur(416px);
-    position: absolute;
-    top: 60%;
-}
-.blur2{
-    height: 50%;
-    width: 50%;
-    background-color: #ff3ee2;
-    filter: blur(416px);
-    position: absolute;
-    left: 80%;
-    bottom: 80%;
-}
-.wrapperHero{
-    position: absolute;
-    top: 25%; 
-    left: 25%;
-    font-size: x-large;
-    line-height: 1ch;
-    font-family: poppins;
     display: flex;
-    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
 }
-.hero{
+
+.blur1, .blur2 {
+    position: absolute;
+    width: 45vw;
+    height: 45vw;
+    max-width: 600px;
+    filter: blur(150px);
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.6;
+}
+
+.blur1 {
+    background-color: #794b9b;
+    bottom: -10%;
+    left: -10%;
+}
+
+.blur2 {
+    background-color: #ff3ee2;
+    top: -10%;
+    right: -10%;
+}
+
+.wrapperHero {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    width: 100%;
+    max-width: 1100px;
+}
+
+.hero {
     color: #5d4799;
-}
-.pc{
+    flex: 1;
     max-width: 500px;
+}
+
+.hero .logo {
+    max-width: 180px;
+    height: auto;
+    margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+.pc {
+    flex: 1;
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    body {
+        align-items: flex-start;
+        padding-top: 4rem;
+        overflow-y: hidden;
+    }
+
+    .wrapperHero {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero .logo {
+        margin: 0 auto 1.5rem auto;
+    }
+
+    .pc {
+        max-width: 300px;
+    }
 }
